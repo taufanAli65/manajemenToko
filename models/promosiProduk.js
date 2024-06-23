@@ -2,8 +2,7 @@ module.exports = (sequelize, DataTypes) => {
     const PromosiProduk = sequelize.define('PromosiProduk', {
         promosiID : {
             type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
+            allowNull: false
         },
         produkID : {
             type: DataTypes.INTEGER,
