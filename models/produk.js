@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
         stok: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        photoProduct : {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
     return Produk;

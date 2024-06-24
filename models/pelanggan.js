@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         username : {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         password : {
             type: DataTypes.STRING,
@@ -18,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         email: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        photo : {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     }, {
         hooks: {
