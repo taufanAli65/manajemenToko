@@ -1,12 +1,7 @@
 const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
-    const Pelanggan = sequelize.define('Pelanggan', {
-        pelangganID : {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
+    const User = sequelize.define('User', {
         username : {
             type: DataTypes.STRING,
             allowNull: false,
@@ -20,9 +15,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        role: {
+            type: DataTypes.ENUM("admin", "user")
+        },
         photo : {
-            type: DataTypes.STRING,
-            allowNull: true
+            type: DataTypes.STRING
         }
     }, {
         hooks: {
@@ -32,5 +29,5 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
       });
-    return Pelanggan;
+    return User;
 }; 

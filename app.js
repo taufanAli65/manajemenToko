@@ -6,6 +6,14 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
+var userRouter = require('./routes/user');
+var efektivitasPromosiRouter = require('./routes/efektivitasPromosi');
+var emailKampanyeRouter = require('./routes/emailKampanye');
+var laporanRouter = require('./routes/laporan'); //laporan Penjualan
+var penjualanRouter = require('./routes/penjualan');
+var produkRouter = require('./routes/produk');
+var promosiRouter = require('./routes/promosi');
+var promosiProdukRouter = require('./routes/promosiProduk');
 const { sequelize } = require('./models');
 
 var app = express();
@@ -22,13 +30,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/user', userRouter);
+app.use('/efektivitasPromosi', efektivitasPromosiRouter);
+app.use('/emailKampanye', emailKampanyeRouter);
+app.use('/laporan', laporanRouter);
+app.use('/penjualan', penjualanRouter);
+app.use('/produk', produkRouter);
+app.use('/promosi', promosiRouter);
+app.use('/promosiProduk', promosiProdukRouter);
 
 sequelize.sync()
 .then(() => {
-  console.log("Database Berhasil Singkron");
+  console.log("Database Berhasil Sinkron");
 })
 .catch(err => {
-  console.error("Gagal Menyingkron Database");
+  console.error("Gagal Menyinkron Database");
 });
 
 // catch 404 and forward to error handler
