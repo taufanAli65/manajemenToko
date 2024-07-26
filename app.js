@@ -17,6 +17,9 @@ var promosiProdukRouter = require('./routes/promosiProduk');
 const { sequelize } = require('./models');
 
 var app = express();
+app.listen(3000, () => {
+  console.log("API berjalan di port 3000")
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

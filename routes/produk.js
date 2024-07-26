@@ -4,7 +4,7 @@ const {Produk} = require('../models');
 const upload = require('../middleware/upload');
 const {authenticate, authorize} = require('../middleware/auth')
 
-// Endpoint untuk menambahkan Produk
+// Endpoint untuk menambahkan Produk, hanya bisa admin. authorize(['admin'])
 router.post('/', authenticate, authorize(['admin']), async (req, res, next) => {
   try {
     const { nama, harga, stok} = req.body;
