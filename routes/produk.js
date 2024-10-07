@@ -8,7 +8,7 @@ const {authenticate, authorize} = require('../middleware/auth')
 router.post('/', authenticate, authorize(['admin']), async (req, res, next) => {
   try {
     const { nama, harga, stok} = req.body;
-    const produk = await Produk.create({ nama, harga, stok, photoProduct });
+    const produk = await Produk.create({ nama, harga, stok });
     res.status(201).json(produk);
   } catch (err) {
     next(err);
